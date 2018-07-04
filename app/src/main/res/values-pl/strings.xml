@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pogodynka</string>
+
+    <string name="intro_title_first">Pogoda dzisiaj</string>
+    <string name="intro_title_second">Prognoza pogody</string>
+    <string name="intro_title_third">Zarządzaj miastami</string>
+    <string name="intro_title_fourth">Preferencje</string>
+
+    <string name="intro_desc_first">Sprawdź pogodę za oknem jednym kliknięciem!</string>
+    <string name="intro_desc_second">Przejrzyj dziesięciodniową prognozę pogody!</string>
+    <string name="intro_desc_third">Zarządzaj swoimi miastami i wybierz ulubione!</string>
+    <string name="intro_desc_fourth">Zmień ustawienia i dopasuj program do swoich potrzeb!</string>
+
+    <string name="navigation_drawer_open">Otwórz szufladę</string>
+    <string name="navigation_drawer_close">Zamknij szufladę</string>
+
+    <string name="action_refresh">Odśwież</string>
+
+    <string name="nav_today">Dzisiaj</string>
+    <string name="nav_forecast">Prognoza</string>
+    <string name="nav_search">Znajdź miasta</string>
+    <string name="nav_settings">Ustawienia</string>
+
+    <string name="nav_header_title">Pogodynka</string>
+
+    <string name="day_mon">Poniedziałek</string>
+    <string name="day_tue">Wtorek</string>
+    <string name="day_wed">Środa</string>
+    <string name="day_thu">Czwartek</string>
+    <string name="day_fri">Piątek</string>
+    <string name="day_sat">Sobota</string>
+    <string name="day_sun">Niedziela</string>
+
+    <string name="condition_0">Tornado</string>
+    <string name="condition_1">Tropikalna burza</string>
+    <string name="condition_2">Huragan</string>
+    <string name="condition_3">Silne burze</string>
+    <string name="condition_4">Burze</string>
+    <string name="condition_5">Deszcz ze śniegiem</string>
+    <string name="condition_6">Deszcz ze śniegiem</string>
+    <string name="condition_7">Deszcz ze śniegiem</string>
+    <string name="condition_8">Marznąca mżawka</string>
+    <string name="condition_9">Mżawka</string>
+    <string name="condition_10">Marznący deszcz</string>
+    <string name="condition_11_12">Przelotne opady</string>
+    <string name="condition_13">Lekki śnieg</string>
+    <string name="condition_14">Lekkie opady śniegu</string>
+    <string name="condition_15">Zamieć</string>
+    <string name="condition_16">Śnieg</string>
+    <string name="condition_17">Grad</string>
+    <string name="condition_18">Gołoledź</string>
+    <string name="condition_19">Kurz</string>
+    <string name="condition_20">Mgliście</string>
+    <string name="condition_21">Mgła</string>
+    <string name="condition_22">Dymnie</string>
+    <string name="condition_23">Wietrznie</string>
+    <string name="condition_24">Wietrznie</string>
+    <string name="condition_25">Zimno</string>
+    <string name="condition_26">Pochmurnie</string>
+    <string name="condition_27_28">Całkowite zachmurzenie</string>
+    <string name="condition_29_30_44">Częściowe zachmurzenie</string>
+    <string name="condition_31">Bezchmurnie</string>
+    <string name="condition_32">Słonecznie</string>
+    <string name="condition_33_34">Pogodnie</string>
+    <string name="condition_35">Deszcz z gradem</string>
+    <string name="condition_36">Upalnie</string>
+    <string name="condition_37">Odosobnione burze</string>
+    <string name="condition_38_39">Rozproszone burze</string>
+    <string name="condition_40">Rozproszone opady</string>
+    <string name="condition_41_43">Śnieżyca</string>
+    <string name="condition_42">Rozproszone opady śniegu</string>
+    <string name="condition_45">Przelotne burze</string>
+    <string name="condition_46">Opady śniegu</string>
+    <string name="condition_47">Odosobnione przelotne burze</string>
+    <string name="condition_3200">Niedostępne</string>
+
+    <string name="error_parsing">Błąd podczas próby pozyskiwania danych!</string>
+    <string name="error_data">Błąd podczas pobierania danych!</string>
+    <string name="error_city">Nie podano domyślnego miasta!</string>
+    <string name="error_city_edit">Sprawdź czy wszystko poprawnie wpisałeś!</string>
+    <string name="error_wrong_city">Nie możemy sprawdzić pogody dla tego miasta!</string>
+    <string name="error_no_city">Musisz dodać przynajmniej jedno miasto!</string>
+
+    <string name="last_refreshed">"Ostatnio odświeżone: "</string>
+
+    <string name="cities_hint">Dodaj miasta klikając na ikonę wyszukiwania na pasku aplikacji!</string>
+
+    <string-array name="settings_units">
+        <item>Stopnie Celsjusza</item>
+        <item>Stopnie Fahrenheita</item>
+    </string-array>
+
+    <string-array name="settings_themes">
+        <item>Morski</item>
+        <item>Indygo</item>
+        <item>Czerwony</item>
+    </string-array>
+
+    <string name="settings_unit_desc">Domyślna skala temperatury</string>
+    <string name="settings_themes_desc">Motyw aplikacji</string>
+
+    <string name="context_default">Ustaw jako domyślne</string>
+    <string name="context_remove">Usuń</string>
+
+    <string name="intro_skip">Pomiń</string>
+    <string name="intro_done">Gotowe</string>
+    <string name="error_play_services">Wystąpił błąd podczas uruchamiania usług Google!</string>
+</resources>

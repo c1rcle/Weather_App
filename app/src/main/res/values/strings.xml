@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    <string name="intro_title_first">Weather today</string>
+    <string name="intro_title_second">Forecast</string>
+    <string name="intro_title_third">Manage cities</string>
+    <string name="intro_title_fourth">Preferences</string>
+
+    <string name="intro_desc_first">Get a local weather forecast for today!</string>
+    <string name="intro_desc_second">Check weather forecast for the next ten days!</string>
+    <string name="intro_desc_third">Manage your cities and choose the default one!</string>
+    <string name="intro_desc_fourth">Change settings to match your needs and habits!</string>
+
+    <string name="navigation_drawer_open">Open drawer</string>
+    <string name="navigation_drawer_close">Close drawer</string>
+
+    <string name="action_refresh">Refresh</string>
+
+    <string name="nav_today">Today</string>
+    <string name="nav_forecast">Forecast</string>
+    <string name="nav_search">Find cities</string>
+    <string name="nav_settings">Settings</string>
+
+    <string name="nav_header_title">Weather</string>
+    <string name="nav_header_author" translatable="false">by c1rcle</string>
+
+    <string name="day_mon">Monday</string>
+    <string name="day_tue">Tuesday</string>
+    <string name="day_wed">Wednesday</string>
+    <string name="day_thu">Thursday</string>
+    <string name="day_fri">Friday</string>
+    <string name="day_sat">Saturday</string>
+    <string name="day_sun">Sunday</string>
+
+    <string name="condition_0">Tornado</string>
+    <string name="condition_1">Tropical storm</string>
+    <string name="condition_2">Hurricane</string>
+    <string name="condition_3">Severe thunderstorms</string>
+    <string name="condition_4">Thunderstorms</string>
+    <string name="condition_5">Mixed rain and snow</string>
+    <string name="condition_6">Mixed rain and sleet</string>
+    <string name="condition_7">Mixed snow and sleet</string>
+    <string name="condition_8">Freezing drizzle</string>
+    <string name="condition_9">Drizzle</string>
+    <string name="condition_10">Freezing rain</string>
+    <string name="condition_11_12">Showers</string>
+    <string name="condition_13">Snow flurries</string>
+    <string name="condition_14">Light snow showers</string>
+    <string name="condition_15">Blowing snow</string>
+    <string name="condition_16">Snow</string>
+    <string name="condition_17">Hail</string>
+    <string name="condition_18">Sleet</string>
+    <string name="condition_19">Dust</string>
+    <string name="condition_20">Foggy</string>
+    <string name="condition_21">Haze</string>
+    <string name="condition_22">Smoky</string>
+    <string name="condition_23">Blustery</string>
+    <string name="condition_24">Windy</string>
+    <string name="condition_25">Cold</string>
+    <string name="condition_26">Cloudy</string>
+    <string name="condition_27_28">Mostly cloudy</string>
+    <string name="condition_29_30_44">Partly cloudy</string>
+    <string name="condition_31">Clear</string>
+    <string name="condition_32">Sunny</string>
+    <string name="condition_33_34">Fair</string>
+    <string name="condition_35">Mixed rain and hail</string>
+    <string name="condition_36">Hot</string>
+    <string name="condition_37">Isolated thunderstorms</string>
+    <string name="condition_38_39">Scattered thunderstorms</string>
+    <string name="condition_40">Scattered showers</string>
+    <string name="condition_41_43">Heavy snow</string>
+    <string name="condition_42">Scattered snow showers</string>
+    <string name="condition_45">Thundershowers</string>
+    <string name="condition_46">Snow showers</string>
+    <string name="condition_47">Isolated thundershowers</string>
+    <string name="condition_3200">Not available</string>
+
+    <string name="error_parsing">Error while parsing data!</string>
+    <string name="error_data">Downloading data failed!</string>
+    <string name="error_city">No default city specified!</string>
+    <string name="error_city_edit">Check your input!</string>
+    <string name="error_wrong_city">Can\'t provide weather information for that city!</string>
+    <string name="error_no_city">You have to add at least one city!</string>
+    <string name="error_play_services">Google services have encountered an error!</string>
+
+    <string name="last_refreshed">Last refreshed: </string>
+
+    <string name="weather_url" translatable="false">https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"city\") and u=\"temp\"&amp;format=json</string>
+
+    <string name="cities_hint">Add cities using the search button on the app bar!</string>
+
+    <string-array name="settings_units">
+        <item>Celsius degrees</item>
+        <item>Fahrenheit degrees</item>
+    </string-array>
+
+    <string-array name="settings_themes">
+        <item>Teal</item>
+        <item>Indigo</item>
+        <item>Red</item>
+    </string-array>
+
+    <string-array name="settings_units_values" translatable="false">
+        <item>c</item>
+        <item>f</item>
+    </string-array>
+
+    <string-array name="settings_themes_values" translatable="false">
+        <item>t</item>
+        <item>i</item>
+        <item>r</item>
+    </string-array>
+
+    <string name="settings_unit_desc">Default temperature scale</string>
+    <string name="settings_themes_desc">Application theme</string>
+
+    <string name="context_default">Make default</string>
+    <string name="context_remove">Remove</string>
+
+    <string name="intro_skip">Skip</string>
+    <string name="intro_done">Done</string>
+</resources>

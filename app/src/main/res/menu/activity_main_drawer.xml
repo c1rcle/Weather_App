@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_today"
+        android:checkable="true"
+        android:icon="@drawable/ic_day_icon"
+        android:title="@string/nav_today" />
+    <item
+        android:id="@+id/nav_forecast"
+        android:checkable="true"
+        android:icon="@drawable/ic_forecast_icon"
+        android:title="@string/nav_forecast" />
+    <item
+        android:id="@+id/nav_search"
+        android:checkable="true"
+        android:icon="@drawable/ic_search_icon"
+        android:title="@string/nav_search" />
+    <item
+        android:id="@+id/nav_settings"
+        android:checkable="true"
+        android:icon="@drawable/ic_settings_icon"
+        android:title="@string/nav_settings" />
+
+</menu>

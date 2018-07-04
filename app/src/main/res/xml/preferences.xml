@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="pref_unit"
+        android:summary="@string/settings_unit_desc"
+        android:icon="@drawable/ic_pref_unit"
+        android:entries="@array/settings_units"
+        android:entryValues="@array/settings_units_values"
+        android:defaultValue="c" />
+    <ListPreference
+        android:key="pref_theme"
+        android:summary="@string/settings_themes_desc"
+        android:icon="@drawable/ic_pref_theme"
+        android:entries="@array/settings_themes"
+        android:entryValues="@array/settings_themes_values"
+        android:defaultValue="t" />
+</PreferenceScreen>
