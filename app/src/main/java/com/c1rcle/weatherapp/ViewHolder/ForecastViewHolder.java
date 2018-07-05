@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.c1rcle.weatherapp.R;
+import com.c1rcle.weatherapp.Utility.WeatherIcons;
 import com.c1rcle.weatherapp.WeatherInfo.WeatherInfoForecastItem;
 
 public class ForecastViewHolder extends RecyclerView.ViewHolder

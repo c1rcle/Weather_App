@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.c1rcle.weatherapp.Activity.MainActivity;
+import com.c1rcle.weatherapp.Adapters.CitiesListViewAdapter;
 import com.c1rcle.weatherapp.R;
 import com.c1rcle.weatherapp.Utility.TinyDB;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -38,7 +39,7 @@ public class CitiesFragment extends Fragment
 
     private ListView listView;
 
-    private ArrayAdapter<String> adapter;
+    private CitiesListViewAdapter adapter;
 
     private TextView citiesHint;
 
@@ -55,11 +56,6 @@ public class CitiesFragment extends Fragment
         {
             listView.getViewTreeObserver().removeOnPreDrawListener(this);
             TinyDB database = new TinyDB(getContext());
-            if (!database.getString("default_city").isEmpty())
-            {
-                int defaultIndex = mValues.indexOf(database.getString("default_city"));
-                setVisible((ViewGroup) listView.getChildAt(defaultIndex));
-            }
             if (mValues.size() == 1 && firstCityAdded)
             {
                 ViewGroup viewGroup = (ViewGroup) listView.getChildAt(0);
@@ -101,8 +97,9 @@ public class CitiesFragment extends Fragment
         });
 
         mValues = database.getListString("cities_list");
+        String mDefaultCity = database.getString("default_city");
         if (mValues.size() > 0) setHintsInvisible();
-        adapter  = new ArrayAdapter<>(getContext(), R.layout.cities_component, R.id.citiesListText, mValues);
+        adapter  = new CitiesListViewAdapter(getContext(), R.layout.cities_component, mValues, mDefaultCity);
         listView.setAdapter(adapter);
 
         if (this.isResumed()) listView.getViewTreeObserver().addOnPreDrawListener(listListener);
@@ -194,13 +191,6 @@ public class CitiesFragment extends Fragment
         int id = item.getItemId();
         if (id == R.id.context_default)
         {
-            if (!database.getString("default_city").isEmpty())
-            {
-                int oldDefaultIndex = mValues.indexOf(database.getString("default_city"));
-                ViewGroup oldDefault = (ViewGroup) listView.getChildAt(oldDefaultIndex);
-                setInvisible(oldDefault);
-            }
-            setVisible(viewGroup);
             database.putString("default_city", text.getText().toString());
             ((MainActivity)getActivity()).preRefresh();
             ((MainActivity)getActivity()).refreshPressed();
@@ -210,12 +200,12 @@ public class CitiesFragment extends Fragment
             if (text.getText().equals(database.getString("default_city")))
             {
                 database.remove("default_city");
+                adapter.setDefaultCity("");
             }
             mValues.remove(info.position);
             if (mValues.size() == 0) setHintsVisible();
             database.putListString("cities_list", mValues);
             listView.setAdapter(adapter);
-            listView.getViewTreeObserver().addOnPreDrawListener(listListener);
         }
         return super.onContextItemSelected(item);
     }
@@ -223,18 +213,6 @@ public class CitiesFragment extends Fragment
     private View getTextView(ViewGroup group)
     {
         return group.getChildAt(0);
-    }
-
-    private void setInvisible(ViewGroup group)
-    {
-        ImageView image = (ImageView) group.getChildAt(1);
-        image.setVisibility(View.INVISIBLE);
-    }
-
-    private void setVisible(ViewGroup group)
-    {
-        ImageView image = (ImageView) group.getChildAt(1);
-        image.setVisibility(View.VISIBLE);
     }
 
     private void setHintsVisible()

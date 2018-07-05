@@ -51,7 +51,7 @@ public class ForecastFragment extends Fragment
             {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new WeatherRecyclerViewAdapter(WeatherInfo.FORECAST_ITEMS));
+            recyclerView.setAdapter(new WeatherRecyclerViewAdapter(WeatherInfo.FORECAST_ITEMS, getResources().getDisplayMetrics().densityDpi));
             DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                     DividerItemDecoration.VERTICAL);
             recyclerView.addItemDecoration(dividerItemDecoration);

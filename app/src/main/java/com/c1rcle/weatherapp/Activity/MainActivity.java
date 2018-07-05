@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity
 
             unit = Units.getUnit(unit);
 
-            Loader loader = getSupportLoaderManager().initLoader(0, null, this);
+            Loader loader = getSupportLoaderManager().restartLoader(0, null, this);
             loader.forceLoad();
         }
         else

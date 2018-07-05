@@ -14,11 +14,10 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="@font/icon_font"
         android:gravity="center"
-        android:padding="0dp"
-        android:text="\uf056"
+        android:text=""
         android:textColor="?colorPrimaryDark"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +39,7 @@
 
     <TextView
         android:id="@+id/itemTemp"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
@@ -54,7 +53,7 @@
 
     <TextView
         android:id="@+id/itemDescription"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"

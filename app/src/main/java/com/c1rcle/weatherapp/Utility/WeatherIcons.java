@@ -4,6 +4,10 @@ import android.content.Context;
 
 import com.c1rcle.weatherapp.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class WeatherIcons
 {
     public static String translateCode(int code)
@@ -119,4 +123,27 @@ public class WeatherIcons
             default: return "";
         }
     }
+
+    public static ArrayList<String> neutralIcons = new ArrayList<>(Arrays.asList(
+            "\uf041",
+            "\uf011",
+            "\uf012",
+            "\uf014",
+            "\uf015",
+            "\uf017",
+            "\uf01a",
+            "\uf01b",
+            "\uf01c",
+            "\uf01d",
+            "\uf01e",
+            "\uf056",
+            "\uf02e",
+            "\uf053"
+            ));
+
+    public static ArrayList<String> lowerIcons = new ArrayList<>(Arrays.asList(
+            "\uf00d",
+            "\uf013",
+            "\uf02e"
+    ));
 }
