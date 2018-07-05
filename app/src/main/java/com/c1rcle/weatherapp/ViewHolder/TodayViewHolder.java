@@ -1,6 +1,7 @@
 package com.c1rcle.weatherapp.ViewHolder;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.c1rcle.weatherapp.R;
@@ -12,7 +13,7 @@ public class TodayViewHolder
 
     public final TextView city;
 
-    public final TextView icon;
+    public final ImageView icon;
 
     public final TextView description;
 
@@ -33,7 +34,7 @@ public class TodayViewHolder
     public void setViews()
     {
         city.setText(item.getCity());
-        icon.setText(item.getIcon());
+        icon.setImageResource(item.getIcon());
         description.setText(item.getDescription());
         temp.setText(item.getTemp());
         refreshStamp.setText(item.getRefreshStamp());

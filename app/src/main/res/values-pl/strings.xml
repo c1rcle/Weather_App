@@ -81,7 +81,7 @@
     <string name="error_city">Nie podano domyślnego miasta!</string>
     <string name="error_city_edit">Sprawdź czy wszystko poprawnie wpisałeś!</string>
     <string name="error_wrong_city">Nie możemy sprawdzić pogody dla tego miasta!</string>
-    <string name="error_no_city">Musisz dodać przynajmniej jedno miasto!</string>
+    <string name="error_no_city">Musisz dodać domyślne miasto!</string>
 
     <string name="last_refreshed">"Ostatnio odświeżone: "</string>
 

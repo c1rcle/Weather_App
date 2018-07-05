@@ -16,12 +16,9 @@ public class WeatherRecyclerViewAdapter extends RecyclerView.Adapter<ForecastVie
 {
     private final List<WeatherInfoForecastItem> mValues;
 
-    private final float mScaleDp;
-
-    public WeatherRecyclerViewAdapter(List<WeatherInfoForecastItem> items, float scaleDp)
+    public WeatherRecyclerViewAdapter(List<WeatherInfoForecastItem> items)
     {
         mValues = items;
-        mScaleDp = scaleDp;
     }
 
     @Override
@@ -38,30 +35,9 @@ public class WeatherRecyclerViewAdapter extends RecyclerView.Adapter<ForecastVie
         holder.mItem = mValues.get(position);
         holder.mDay.setText(mValues.get(position).getDay());
         holder.mDate.setText(mValues.get(position).getDate());
-        holder.mIcon.setText(mValues.get(position).getIcon());
+        holder.mIcon.setImageResource(mValues.get(position).getIcon());
         holder.mTemp.setText(mValues.get(position).getTemp());
         holder.mDescription.setText(mValues.get(position).getDescription());
-        if (WeatherIcons.neutralIcons.contains(holder.mIcon.getText().toString()))
-        {
-            float marginTop = 8 * (mScaleDp / 160f);
-            float marginBot = 20 * (mScaleDp / 160f);
-            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.mIcon.getLayoutParams();
-            params.setMargins(0, (int) marginTop, 0, (int) marginBot);
-        }
-        else if (WeatherIcons.lowerIcons.contains(holder.mIcon.getText().toString()))
-        {
-            float marginTop = 8 * (mScaleDp / 160f);
-            float marginBot = 10 * (mScaleDp / 160f);
-            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.mIcon.getLayoutParams();
-            params.setMargins(0, (int) marginTop, 0, (int) marginBot);
-        }
-        else
-        {
-            float marginTop = 19 * (mScaleDp / 160f);
-            float marginBot = 8 * (mScaleDp / 160f);
-            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.mIcon.getLayoutParams();
-            params.setMargins(0, (int) marginTop, 0, (int) marginBot);
-        }
     }
 
     @Override

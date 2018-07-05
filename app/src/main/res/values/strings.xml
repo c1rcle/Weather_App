@@ -80,7 +80,7 @@
     <string name="error_city">No default city specified!</string>
     <string name="error_city_edit">Check your input!</string>
     <string name="error_wrong_city">Can\'t provide weather information for that city!</string>
-    <string name="error_no_city">You have to add at least one city!</string>
+    <string name="error_no_city">You have to add a default city!</string>
     <string name="error_play_services">Google services have encountered an error!</string>
 
     <string name="last_refreshed">Last refreshed: </string>

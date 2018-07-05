@@ -6,13 +6,13 @@ public class WeatherInfoForecastItem
 
     private final String date;
 
-    private final String icon;
+    private final int icon;
 
     private final String temp;
 
     private final String description;
 
-    public WeatherInfoForecastItem(String day, String date, String icon, String temp, String description)
+    public WeatherInfoForecastItem(String day, String date, int icon, String temp, String description)
     {
         this.day = day;
         this.date = date;
@@ -31,7 +31,7 @@ public class WeatherInfoForecastItem
         return date;
     }
 
-    public String getIcon()
+    public int getIcon()
     {
         return icon;
     }

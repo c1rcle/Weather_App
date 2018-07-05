@@ -49,7 +49,7 @@ public class JsonParser
             JSONObject object = forecast.getJSONObject(i);
             String day = WeekDays.translateDay(object.getString("day"), context);
             String date = new SimpleDateFormat("dd.MM.yyyy").format(new Date(object.getString("date")));
-            String icon = WeatherIcons.translateCode(object.getInt("code"));
+            int icon = WeatherIcons.translateCode(object.getInt("code"));
             String temp = object.getString("high") + unit;
             String description = WeatherIcons.translateDescription(object.getInt("code"), context);
             WeatherInfoForecastItem item = new WeatherInfoForecastItem(day, date, icon, temp, description);
@@ -64,7 +64,7 @@ public class JsonParser
 
         TinyDB database = new TinyDB(context);
         String city = database.getString("default_city");
-        String icon = WeatherIcons.translateCode(forecast.getInt("code"));
+        int icon = WeatherIcons.translateCode(forecast.getInt("code"));
         String temp = forecast.getString("temp") + unit;
         String description = WeatherIcons.translateDescription(forecast.getInt("code"), context);
         String ref = new SimpleDateFormat("dd.MM.yyyy HH:mm").format(new Date());

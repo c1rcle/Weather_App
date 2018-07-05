@@ -2,6 +2,7 @@ package com.c1rcle.weatherapp.ViewHolder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.c1rcle.weatherapp.R;
@@ -16,7 +17,7 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder
 
     public final TextView mDate;
 
-    public final TextView mIcon;
+    public final ImageView mIcon;
 
     public final TextView mTemp;
 

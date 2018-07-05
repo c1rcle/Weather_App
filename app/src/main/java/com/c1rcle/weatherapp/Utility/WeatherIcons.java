@@ -10,60 +10,60 @@ import java.util.List;
 
 public class WeatherIcons
 {
-    public static String translateCode(int code)
+    public static int translateCode(int code)
     {
         switch (code)
         {
-            case 0: return "\uf056";
-            case 1: return "\uf056";
-            case 2: return "\uf056";
-            case 3: return "\uf01e";
-            case 4: return "\uf01e";
-            case 5: return "\uf017";
-            case 6: return "\uf017";
-            case 7: return "\uf017";
-            case 8: return "\uf015";
-            case 9: return "\uf01c";
-            case 10: return "\uf015";
-            case 11: return "\uf01a";
-            case 12: return "\uf01a";
-            case 13: return "\uf01b";
-            case 14: return "\uf01b";
-            case 15: return "\uf01b";
-            case 16: return "\uf01b";
-            case 17: return "\uf015";
-            case 18: return "\uf015";
-            case 19: return "\uf014";
-            case 20: return "\uf014";
-            case 21: return "\uf014";
-            case 22: return "\uf014";
-            case 23: return "\uf011";
-            case 24: return "\uf012";
-            case 25: return "\uf053";
-            case 26: return "\uf013";
-            case 27: return "\uf031";
-            case 28: return "\uf002";
-            case 29: return "\uf031";
-            case 30: return "\uf002";
-            case 31: return "\uf02e";
-            case 32: return "\uf00d";
-            case 33: return "\uf02e";
-            case 34: return "\uf00c";
-            case 35: return "\uf017";
-            case 36: return "\uf00d";
-            case 37: return "\uf01e";
-            case 38: return "\uf01e";
-            case 39: return "\uf01e";
-            case 40: return "\uf01e";
-            case 41: return "\uf01b";
-            case 42: return "\uf01b";
-            case 43: return "\uf01b";
-            case 44: return "\uf002";
-            case 45: return "\uf01d";
-            case 46: return "\uf01b";
-            case 47: return "\uf01e";
-            case 3200: return "\uf041";
-            default: return "";
+            case 0: return R.drawable.icon_wi_tornado;
+            case 1: return R.drawable.icon_wi_tornado;
+            case 2: return R.drawable.icon_wi_tornado;
+            case 3: return R.drawable.icon_wi_thunderstorm;
+            case 4: return R.drawable.icon_wi_thunderstorm;
+            case 5: return R.drawable.icon_wi_rain_mix;
+            case 6: return R.drawable.icon_wi_rain_mix;
+            case 7: return R.drawable.icon_wi_rain_mix;
+            case 8: return R.drawable.icon_wi_hail;
+            case 9: return R.drawable.icon_wi_sprinkle;
+            case 10: return R.drawable.icon_wi_hail;
+            case 11: return R.drawable.icon_wi_showers;
+            case 12: return R.drawable.icon_wi_showers;
+            case 13: return R.drawable.icon_wi_snow;
+            case 14: return R.drawable.icon_wi_snow;
+            case 15: return R.drawable.icon_wi_snow;
+            case 16: return R.drawable.icon_wi_snow;
+            case 17: return R.drawable.icon_wi_hail;
+            case 18: return R.drawable.icon_wi_hail;
+            case 19: return R.drawable.icon_wi_fog;
+            case 20: return R.drawable.icon_wi_fog;
+            case 21: return R.drawable.icon_wi_fog;
+            case 22: return R.drawable.icon_wi_fog;
+            case 23: return R.drawable.icon_wi_cloudy_gusts;
+            case 24: return R.drawable.icon_wi_cloudy_windy;
+            case 25: return R.drawable.icon_wi_thermometer_exterior;
+            case 26: return R.drawable.icon_wi_cloudy;
+            case 27: return R.drawable.icon_wi_night_cloudy;
+            case 28: return R.drawable.icon_wi_day_cloudy;
+            case 29: return R.drawable.icon_wi_night_cloudy;
+            case 30: return R.drawable.icon_wi_day_cloudy;
+            case 31: return R.drawable.icon_wi_night_clear;
+            case 32: return R.drawable.icon_wi_day_sunny;
+            case 33: return R.drawable.icon_wi_night_clear;
+            case 34: return R.drawable.icon_wi_day_sunny_overcast;
+            case 35: return R.drawable.icon_wi_rain_mix;
+            case 36: return R.drawable.icon_wi_day_sunny;
+            case 37: return R.drawable.icon_wi_thunderstorm;
+            case 38: return R.drawable.icon_wi_thunderstorm;
+            case 39: return R.drawable.icon_wi_thunderstorm;
+            case 40: return R.drawable.icon_wi_thunderstorm;
+            case 41: return R.drawable.icon_wi_snow;
+            case 42: return R.drawable.icon_wi_snow;
+            case 43: return R.drawable.icon_wi_snow;
+            case 44: return R.drawable.icon_wi_day_cloudy;
+            case 45: return R.drawable.icon_wi_storm_showers;
+            case 46: return R.drawable.icon_wi_snow;
+            case 47: return R.drawable.icon_wi_thunderstorm;
+            case 3200: return R.drawable.icon_wi_cloud;
+            default: return -1;
         }
     }
 
@@ -123,27 +123,4 @@ public class WeatherIcons
             default: return "";
         }
     }
-
-    public static ArrayList<String> neutralIcons = new ArrayList<>(Arrays.asList(
-            "\uf041",
-            "\uf011",
-            "\uf012",
-            "\uf014",
-            "\uf015",
-            "\uf017",
-            "\uf01a",
-            "\uf01b",
-            "\uf01c",
-            "\uf01d",
-            "\uf01e",
-            "\uf056",
-            "\uf02e",
-            "\uf053"
-            ));
-
-    public static ArrayList<String> lowerIcons = new ArrayList<>(Arrays.asList(
-            "\uf00d",
-            "\uf013",
-            "\uf02e"
-    ));
 }

@@ -2,7 +2,7 @@ package com.c1rcle.weatherapp.WeatherInfo;
 
 public class WeatherInfoTodayItem
 {
-    private final String icon;
+    private final int icon;
 
     private final String temp;
 
@@ -12,7 +12,7 @@ public class WeatherInfoTodayItem
 
     private final String refreshStamp;
 
-    public WeatherInfoTodayItem(String city, String icon, String temp, String description, String refreshStamp)
+    public WeatherInfoTodayItem(String city, int icon, String temp, String description, String refreshStamp)
     {
         this.city = city;
         this.icon = icon;
@@ -21,7 +21,7 @@ public class WeatherInfoTodayItem
         this.refreshStamp = refreshStamp;
     }
 
-    public String getIcon()
+    public int getIcon()
     {
         return icon;
     }
