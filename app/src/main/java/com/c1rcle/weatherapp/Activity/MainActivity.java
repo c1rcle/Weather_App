@@ -7,11 +7,11 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -29,14 +29,14 @@ import com.c1rcle.weatherapp.Fragments.ForecastFragment;
 import com.c1rcle.weatherapp.Fragments.SettingsFragment;
 import com.c1rcle.weatherapp.Fragments.TodayFragment;
 import com.c1rcle.weatherapp.R;
+import com.c1rcle.weatherapp.Utility.City;
+import com.c1rcle.weatherapp.Utility.ObjectSerialization;
 import com.c1rcle.weatherapp.Utility.Themes;
 import com.c1rcle.weatherapp.Utility.TinyDB;
 import com.c1rcle.weatherapp.Utility.Units;
-import com.c1rcle.weatherapp.WeatherParser.JsonParser;
+import com.c1rcle.weatherapp.WeatherParser.JsonReader;
 import com.c1rcle.weatherapp.WeatherParser.RefreshTask;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.gson.JsonElement;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity
     private int NAV_DRAWER_FADE_IN_OUT = 250;
 
     private SwipeRefreshLayout swipeRefresh;
+
+    private boolean downloadingDataFailed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            if (!database.getString("default_city").isEmpty())
+            if (ObjectSerialization.getObject("default_city", getApplicationContext()) != null)
             {
                 preRefresh();
                 refreshPressed();
@@ -127,10 +129,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onLoadFinished(Loader loader, Object data)
     {
-        String s = (String) data;
-        if(s != null)
+        JsonElement source = (JsonElement) data;
+        if(source != null)
         {
-            JsonParser parser = new JsonParser(s, this);
+            JsonReader parser = new JsonReader(source, this);
             try
             {
                 parser.populateToday(unit);
@@ -140,17 +142,26 @@ public class MainActivity extends AppCompatActivity
             {
                 e.printStackTrace();
                 Toast.makeText(this, R.string.error_wrong_city, Toast.LENGTH_SHORT).show();
+                NavigationView navView = findViewById(R.id.nav_view);
+                onNavigationItemSelected(navView.getMenu().getItem(2));
+                navView.getMenu().getItem(2).setChecked(true);
+                downloadingDataFailed = true;
             }
             postRefresh();
 
             NavigationView navView = findViewById(R.id.nav_view);
             int selectedItemId = getSelectedItemId(navView);
             onNavigationItemSelected(navView.getMenu().getItem(selectedItemId));
+            downloadingDataFailed = false;
         }
         else
         {
             Toast.makeText(this, R.string.error_data, Toast.LENGTH_SHORT).show();
             postRefresh();
+            NavigationView navView = findViewById(R.id.nav_view);
+            onNavigationItemSelected(navView.getMenu().getItem(2));
+            navView.getMenu().getItem(2).setChecked(true);
+            downloadingDataFailed = true;
         }
     }
 
@@ -189,10 +200,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item)
+    public boolean onNavigationItemSelected(@NonNull MenuItem item)
     {
-        TinyDB database = new TinyDB(this);
-        if (!database.getString("default_city").isEmpty() || item.getItemId() == R.id.nav_search)
+        if ((ObjectSerialization.getObject("default_city", getApplicationContext()) != null
+                || item.getItemId() == R.id.nav_search) && !downloadingDataFailed)
         {
             DrawerLayout drawer = findViewById(R.id.drawer_layout);
             final View mainContent = findViewById(R.id.fragmentContainer);
@@ -213,6 +224,11 @@ public class MainActivity extends AppCompatActivity
             }
 
             drawer.closeDrawer(GravityCompat.START);
+        }
+        else if (downloadingDataFailed)
+        {
+            Toast.makeText(this, getString(R.string.error_corrupted), Toast.LENGTH_SHORT).show();
+            return false;
         }
         else
         {
@@ -268,17 +284,17 @@ public class MainActivity extends AppCompatActivity
 
     public void refreshPressed()
     {
-        TinyDB database = new TinyDB(this);
-        String city = database.getString("default_city");
-        if (!city.isEmpty())
+        City city = ObjectSerialization.getObject("default_city", getApplicationContext());
+        if (city != null && !city.getName().isEmpty())
         {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            unit = prefs.getString("pref_unit", "c");
+            unit = prefs.getString("pref_unit", "si");
 
             URL = getString(R.string.weather_url);
-            URL = URL.replace("city", city);
-            URL = URL.replace("temp", unit);
-
+            URL = URL.replace("apikey", getString(R.string.DARKSKY_API_KEY));
+            URL = URL.replace("lat", Double.toString(city.getCoordinates().latitude));
+            URL = URL.replace("lon", Double.toString(city.getCoordinates().longitude));
+            URL = URL.replace("unitSet", unit);
             unit = Units.getUnit(unit);
 
             Loader loader = getSupportLoaderManager().restartLoader(0, null, this);

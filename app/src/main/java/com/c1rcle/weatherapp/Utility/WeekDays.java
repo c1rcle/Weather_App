@@ -6,20 +6,20 @@ import com.c1rcle.weatherapp.R;
 
 public class WeekDays
 {
-    public static String translateDay(String day, Context context)
+    public static String translateDay(int day, Context context)
     {
         switch (day) {
-            case "Mon":
+            case 1:
                 return context.getResources().getString(R.string.day_mon);
-            case "Tue":
+            case 2:
                 return context.getResources().getString(R.string.day_tue);
-            case "Wed":
+            case 3:
                 return context.getResources().getString(R.string.day_wed);
-            case "Thu":
+            case 4:
                 return context.getResources().getString(R.string.day_thu);
-            case "Fri":
+            case 5:
                 return context.getResources().getString(R.string.day_fri);
-            case "Sat":
+            case 6:
                 return context.getResources().getString(R.string.day_sat);
             default:
                 return context.getResources().getString(R.string.day_sun);

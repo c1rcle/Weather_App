@@ -3,9 +3,11 @@ package com.c1rcle.weatherapp.WeatherParser;
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 
+import com.google.gson.JsonElement;
+
 import java.io.IOException;
 
-public class RefreshTask extends AsyncTaskLoader<String>
+public class RefreshTask extends AsyncTaskLoader<JsonElement>
 {
     private String URL;
 
@@ -16,10 +18,10 @@ public class RefreshTask extends AsyncTaskLoader<String>
     }
 
     @Override
-    public String loadInBackground()
+    public JsonElement loadInBackground()
     {
         JsonDownloader downloader = new JsonDownloader();
-        String data;
+        JsonElement data;
         try
         {
             data = downloader.HTTPGetCall(URL);

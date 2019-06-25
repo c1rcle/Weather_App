@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_pref_unit"
         android:entries="@array/settings_units"
         android:entryValues="@array/settings_units_values"
-        android:defaultValue="c" />
+        android:defaultValue="si" />
     <ListPreference
         android:key="pref_theme"
         android:summary="@string/settings_themes_desc"

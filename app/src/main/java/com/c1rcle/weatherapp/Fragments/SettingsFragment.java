@@ -7,6 +7,8 @@ import android.support.v7.preference.PreferenceManager;
 
 import com.c1rcle.weatherapp.R;
 
+import java.util.Objects;
+
 public class SettingsFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener
 {
@@ -16,7 +18,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey)
     {
         setPreferencesFromResource(R.xml.preferences, rootKey);
-        PreferenceManager.setDefaultValues(getContext(), R.xml.preferences, false);
+        PreferenceManager.setDefaultValues(Objects.requireNonNull(getContext()), R.xml.preferences, false);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class SettingsFragment extends PreferenceFragmentCompat
     {
         if (s.equals("pref_theme"))
         {
-            getActivity().recreate();
+            Objects.requireNonNull(getActivity()).recreate();
         }
     }
 }

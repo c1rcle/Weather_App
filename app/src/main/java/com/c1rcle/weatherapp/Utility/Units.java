@@ -4,7 +4,7 @@ public class Units
 {
     public static String getUnit(String unit)
     {
-        if (unit.equals("c")) return " °C";
+        if (unit.equals("si")) return " °C";
         else return " °F";
     }
 }

@@ -9,7 +9,7 @@
     <string name="intro_title_fourth">Preferencje</string>
 
     <string name="intro_desc_first">Sprawdź pogodę za oknem jednym kliknięciem!</string>
-    <string name="intro_desc_second">Przejrzyj dziesięciodniową prognozę pogody!</string>
+    <string name="intro_desc_second">Przejrzyj siedmiodniową prognozę pogody!</string>
     <string name="intro_desc_third">Zarządzaj swoimi miastami i wybierz ulubione!</string>
     <string name="intro_desc_fourth">Zmień ustawienia i dopasuj program do swoich potrzeb!</string>
 
@@ -82,6 +82,7 @@
     <string name="error_city_edit">Sprawdź czy wszystko poprawnie wpisałeś!</string>
     <string name="error_wrong_city">Nie możemy sprawdzić pogody dla tego miasta!</string>
     <string name="error_no_city">Musisz dodać domyślne miasto!</string>
+    <string name="error_places_activity">Wiemy, że wcisnąłeś przycisk. Daj chwilę swojemu telefonowi!</string>
 
     <string name="last_refreshed">"Ostatnio odświeżone: "</string>
 
@@ -107,4 +108,6 @@
     <string name="intro_skip">Pomiń</string>
     <string name="intro_done">Gotowe</string>
     <string name="error_play_services">Wystąpił błąd podczas uruchamiania usług Google!</string>
+    <string name="condition_rain">Deszcz</string>
+    <string name="error_corrupted">Nie można było pobrać danych dla podanych ustawień!</string>
 </resources>

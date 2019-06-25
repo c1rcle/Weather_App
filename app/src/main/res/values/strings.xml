@@ -7,7 +7,7 @@
     <string name="intro_title_fourth">Preferences</string>
 
     <string name="intro_desc_first">Get a local weather forecast for today!</string>
-    <string name="intro_desc_second">Check weather forecast for the next ten days!</string>
+    <string name="intro_desc_second">Check weather forecast for the next seven days!</string>
     <string name="intro_desc_third">Manage your cities and choose the default one!</string>
     <string name="intro_desc_fourth">Change settings to match your needs and habits!</string>
 
@@ -73,19 +73,22 @@
     <string name="condition_45">Thundershowers</string>
     <string name="condition_46">Snow showers</string>
     <string name="condition_47">Isolated thundershowers</string>
+    <string name="condition_rain">Rain</string>
     <string name="condition_3200">Not available</string>
 
+    <string name="error_corrupted">Data could not be downloaded!</string>
     <string name="error_parsing">Error while parsing data!</string>
     <string name="error_data">Downloading data failed!</string>
     <string name="error_city">No default city specified!</string>
     <string name="error_city_edit">Check your input!</string>
     <string name="error_wrong_city">Can\'t provide weather information for that city!</string>
     <string name="error_no_city">You have to add a default city!</string>
+    <string name="error_places_activity">We know you have clicked the button. Just give your phone some time!</string>
     <string name="error_play_services">Google services have encountered an error!</string>
 
     <string name="last_refreshed">Last refreshed: </string>
 
-    <string name="weather_url" translatable="false">https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"city\") and u=\"temp\"&amp;format=json</string>
+    <string name="weather_url" translatable="false">https://api.darksky.net/forecast/apikey/lat,lon?units=unitSet</string>
 
     <string name="cities_hint">Add cities using the search button on the app bar!</string>
 
@@ -101,8 +104,8 @@
     </string-array>
 
     <string-array name="settings_units_values" translatable="false">
-        <item>c</item>
-        <item>f</item>
+        <item>si</item>
+        <item>us</item>
     </string-array>
 
     <string-array name="settings_themes_values" translatable="false">

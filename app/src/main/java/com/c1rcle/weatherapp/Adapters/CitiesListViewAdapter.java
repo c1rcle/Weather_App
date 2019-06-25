@@ -11,16 +11,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.c1rcle.weatherapp.R;
+import com.c1rcle.weatherapp.Utility.City;
+import com.google.android.gms.common.api.Api;
 
 import java.util.List;
+import java.util.Optional;
 
-public class CitiesListViewAdapter extends ArrayAdapter<String>
+public class CitiesListViewAdapter extends ArrayAdapter<City>
 {
-    private String mDefaultCity;
+    private City mDefaultCity;
 
-    public CitiesListViewAdapter(Context context, int resource, List<String> values, String defaultCity)
+    public CitiesListViewAdapter(Context context, int resource, List<City> values, City defaultCity)
     {
         super(context, resource, values);
+        if (defaultCity == null) defaultCity = new City("", null);
         mDefaultCity = defaultCity;
     }
 
@@ -36,7 +40,7 @@ public class CitiesListViewAdapter extends ArrayAdapter<String>
             view = inflater.inflate(R.layout.cities_component, null);
         }
 
-        String value = getItem(position);
+        City value = getItem(position);
 
         if (value != null)
         {
@@ -45,15 +49,15 @@ public class CitiesListViewAdapter extends ArrayAdapter<String>
 
             if (cityText != null)
             {
-                cityText.setText(value);
-                if (cityText.getText().toString().equals(mDefaultCity))
+                cityText.setText(value.getName());
+                if (cityText.getText().toString().equals(mDefaultCity.getName()))
                     cityImage.setVisibility(View.VISIBLE);
             }
         }
         return view;
     }
 
-    public void setDefaultCity(String city)
+    public void setDefaultCity(City city)
     {
         mDefaultCity = city;
     }
