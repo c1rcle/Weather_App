@@ -110,4 +110,6 @@
     <string name="error_play_services">Wystąpił błąd podczas uruchamiania usług Google!</string>
     <string name="condition_rain">Deszcz</string>
     <string name="error_corrupted">Nie można było pobrać danych dla podanych ustawień!</string>
+    <string name="dialog_loading_text">Pobieranie danych</string>
+    <string name="dialog_loading_button">Zatrzymaj</string>
 </resources>

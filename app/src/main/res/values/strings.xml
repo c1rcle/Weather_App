@@ -24,6 +24,9 @@
     <string name="nav_header_title">Weather</string>
     <string name="nav_header_author" translatable="false">by c1rcle</string>
 
+    <string name="dialog_loading_text">"Retrieving data "</string>
+    <string name="dialog_loading_button">Cancel</string>
+
     <string name="day_mon">Monday</string>
     <string name="day_tue">Tuesday</string>
     <string name="day_wed">Wednesday</string>
