@@ -16,7 +16,9 @@ public class UpdateDialogFragment extends DialogFragment
         @Override
         public void onClick(DialogInterface dialogInterface, int i)
         {
-
+            UpdateResultFragment resultFragment = new UpdateResultFragment();
+            resultFragment.setUpdateStatus(true);
+            resultFragment.show(getActivity().getFragmentManager(), "result");
         }
     };
 

@@ -15,6 +15,7 @@
     <string name="navigation_drawer_close">Close drawer</string>
 
     <string name="action_refresh">Refresh</string>
+    <string name="action_update">Update</string>
 
     <string name="nav_today">Today</string>
     <string name="nav_forecast">Forecast</string>
@@ -24,8 +25,13 @@
     <string name="nav_header_title">Weather</string>
     <string name="nav_header_author" translatable="false">by c1rcle</string>
 
-    <string name="dialog_loading_text">"Retrieving data "</string>
+    <string name="dialog_loading_text">"Retrieving data, please wait "</string>
     <string name="dialog_loading_button">Cancel</string>
+    <string name="dialog_version_title_new">New version is available</string>
+    <string name="dialog_version_title_up">You have the latest version</string>
+    <string name="dialog_version_desc">Most recent version is \'version\', changelog:</string>
+    <string name="dialog_version_cancel">Cancel</string>
+    <string name="dialog_version_download">Download</string>
 
     <string name="day_mon">Monday</string>
     <string name="day_tue">Tuesday</string>

@@ -1,6 +1,7 @@
 package com.c1rcle.weatherapp.Activity;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
@@ -28,6 +29,7 @@ import com.c1rcle.weatherapp.Fragments.CitiesFragment;
 import com.c1rcle.weatherapp.Fragments.ForecastFragment;
 import com.c1rcle.weatherapp.Fragments.SettingsFragment;
 import com.c1rcle.weatherapp.Fragments.TodayFragment;
+import com.c1rcle.weatherapp.Fragments.UpdateDialogFragment;
 import com.c1rcle.weatherapp.R;
 import com.c1rcle.weatherapp.Utility.City;
 import com.c1rcle.weatherapp.Utility.ObjectSerialization;
@@ -194,6 +196,11 @@ public class MainActivity extends AppCompatActivity
         {
             preRefresh();
             refreshPressed();
+        }
+        else if (id == R.id.action_update)
+        {
+            UpdateDialogFragment dialogFragment = new UpdateDialogFragment();
+            dialogFragment.show(getFragmentManager(), "update");
         }
 
         return super.onOptionsItemSelected(item);
