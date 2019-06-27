@@ -15,6 +15,7 @@
     <string name="navigation_drawer_close">Close drawer</string>
 
     <string name="action_refresh">Refresh</string>
+    <string name="action_update">Update</string>
 
     <string name="nav_today">Today</string>
     <string name="nav_forecast">Forecast</string>
@@ -23,6 +24,16 @@
 
     <string name="nav_header_title">Weather</string>
     <string name="nav_header_author" translatable="false">by c1rcle</string>
+
+    <string name="dialog_loading_text">"Retrieving data, please wait "</string>
+    <string name="dialog_loading_button">Cancel</string>
+    <string name="dialog_version_title_new">New version is available</string>
+    <string name="dialog_version_title_up">You have the latest version</string>
+    <string name="dialog_version_cancel">Cancel</string>
+    <string name="dialog_version_download">Download</string>
+    <string name="dialog_version_directory">Choose directory</string>
+
+    <string name="notification_description">Downloading version</string>
 
     <string name="day_mon">Monday</string>
     <string name="day_tue">Tuesday</string>
@@ -85,10 +96,13 @@
     <string name="error_no_city">You have to add a default city!</string>
     <string name="error_places_activity">We know you have clicked the button. Just give your phone some time!</string>
     <string name="error_play_services">Google services have encountered an error!</string>
+    <string name="error_permissions">The update can\'t be downloaded without your permission!</string>
 
     <string name="last_refreshed">Last refreshed: </string>
 
     <string name="weather_url" translatable="false">https://api.darksky.net/forecast/apikey/lat,lon?units=unitSet</string>
+    <string name="api_url" translatable="false">http://weatherapp.c1rcle.pl/api.php?field=value</string>
+    <string name="apk_url" translatable="false">http://weatherapp.c1rcle.pl/apk/</string>
 
     <string name="cities_hint">Add cities using the search button on the app bar!</string>
 
