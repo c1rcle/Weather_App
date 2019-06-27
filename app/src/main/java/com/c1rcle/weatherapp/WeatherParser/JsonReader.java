@@ -71,7 +71,7 @@ public class JsonReader
         int icon = WeatherIcons.translateCode(forecast.get("icon").getAsString());
         String temp = forecast.get("temperature").getAsString() + unit;
         String description = WeatherIcons.translateDescription(forecast.get("icon").getAsString(), context);
-        String ref = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault()).format(new Date());
+        String ref = new SimpleDateFormat(" dd.MM.yyyy HH:mm", Locale.getDefault()).format(new Date());
         ref = context.getString(R.string.last_refreshed) + ref;
         WeatherInfo.TODAY_ITEM = new WeatherInfoTodayItem(Objects.requireNonNull(city).getName(),
                 icon, temp, description, ref);

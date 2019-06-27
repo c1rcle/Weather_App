@@ -1,11 +1,16 @@
 package com.c1rcle.weatherapp.Activity;
 
 import android.app.ActivityManager;
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -29,6 +34,7 @@ import com.c1rcle.weatherapp.Fragments.ForecastFragment;
 import com.c1rcle.weatherapp.Fragments.SettingsFragment;
 import com.c1rcle.weatherapp.Fragments.TodayFragment;
 import com.c1rcle.weatherapp.Fragments.UpdateLoadFragment;
+import com.c1rcle.weatherapp.Fragments.UpdateResultFragment;
 import com.c1rcle.weatherapp.R;
 import com.c1rcle.weatherapp.Utility.City;
 import com.c1rcle.weatherapp.Utility.ObjectSerialization;
@@ -38,6 +44,8 @@ import com.c1rcle.weatherapp.Utility.Units;
 import com.c1rcle.weatherapp.WeatherParser.JsonReader;
 import com.c1rcle.weatherapp.WeatherParser.RefreshTask;
 import com.google.gson.JsonElement;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -329,5 +337,33 @@ public class MainActivity extends AppCompatActivity
             if (item.isChecked()) selectedItemId = i;
         }
         return selectedItemId;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        if (requestCode == UpdateResultFragment.PERMISSIONS_REQUEST)
+        {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) downloadApk();
+            else Toast.makeText(this, R.string.error_permissions, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void downloadApk()
+    {
+        DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        TinyDB database = new TinyDB(this);
+        String version = database.getString("update_version");
+
+        String filename = "weatherApp_" + version + ".apk";
+        String directory = "file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+        Uri endPoint = Uri.parse(getString(R.string.apk_url) + filename);
+        DownloadManager.Request request = new DownloadManager.Request(endPoint);
+
+        request.setTitle(filename);
+        request.setDescription(getString(R.string.notification_description) + " " + version + '.');
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationUri(Uri.parse(directory + "/" + filename));
+        Objects.requireNonNull(manager).enqueue(request);
     }
 }

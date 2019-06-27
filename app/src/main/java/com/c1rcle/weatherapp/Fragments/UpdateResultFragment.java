@@ -1,51 +1,51 @@
 package com.c1rcle.weatherapp.Fragments;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.DownloadManager;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.c1rcle.weatherapp.Activity.MainActivity;
 import com.c1rcle.weatherapp.R;
+import com.c1rcle.weatherapp.Utility.TinyDB;
 
 public class UpdateResultFragment extends DialogFragment
 {
+    public static int PERMISSIONS_REQUEST = 0;
+
     private boolean updateStatus = false;
 
     private String version;
 
     private String description;
 
-    private Uri path;
-
     public DialogInterface.OnClickListener approvedListener = new DialogInterface.OnClickListener()
     {
         @Override
         public void onClick(DialogInterface dialogInterface, int i)
         {
-            Intent picker = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-            picker.addCategory(Intent.CATEGORY_DEFAULT);
-            startActivityForResult(Intent.createChooser(picker, getString(R.string.dialog_version_directory)), 0);
+            TinyDB database = new TinyDB(getContext());
+            database.putString("update_version", version);
+
+            if (ContextCompat.checkSelfPermission(getActivity(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            {
+                String[] permissions = new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE };
+                getActivity().requestPermissions(permissions, PERMISSIONS_REQUEST);
+            }
+            else ((MainActivity) getActivity()).downloadApk();
         }
     };
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (requestCode == 0)
-        {
-            DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
-        }
-    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
@@ -58,6 +58,8 @@ public class UpdateResultFragment extends DialogFragment
         {
             View view = inflater.inflate(R.layout.dialog_version, null);
             updateDescription = view.findViewById(R.id.updateDescription);
+            TinyDB database = new TinyDB(getActivity());
+            database.putString("version", version);
 
             Spanned text = Html.fromHtml(description);
             updateDescription.setText(text.subSequence(0, text.toString().trim().length()));
