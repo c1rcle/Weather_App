@@ -17,15 +17,14 @@ import java.util.Locale;
 
 public class UpdateLoadFragment extends DialogFragment implements UpdateListener
 {
+    private boolean cancelled = false;
+
     private DialogInterface.OnClickListener cancelledListener = new DialogInterface.OnClickListener()
     {
         @Override
         public void onClick(DialogInterface dialogInterface, int i)
         {
-
-            UpdateResultFragment resultFragment = new UpdateResultFragment();
-            resultFragment.setUpdateStatus(true);
-            resultFragment.show(getActivity().getFragmentManager(), "result");
+            cancelled = true;
         }
     };
 
@@ -53,6 +52,7 @@ public class UpdateLoadFragment extends DialogFragment implements UpdateListener
     public void onUpdateCompleted(String version, String description, String status)
     {
         this.dismiss();
+        if (cancelled) return;
         switch (status)
         {
             case "correct":
