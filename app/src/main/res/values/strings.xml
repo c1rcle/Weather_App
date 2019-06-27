@@ -29,9 +29,9 @@
     <string name="dialog_loading_button">Cancel</string>
     <string name="dialog_version_title_new">New version is available</string>
     <string name="dialog_version_title_up">You have the latest version</string>
-    <string name="dialog_version_desc">Most recent version is \'version\', changelog:</string>
     <string name="dialog_version_cancel">Cancel</string>
     <string name="dialog_version_download">Download</string>
+    <string name="dialog_version_directory">Choose directory</string>
 
     <string name="day_mon">Monday</string>
     <string name="day_tue">Tuesday</string>
@@ -98,6 +98,7 @@
     <string name="last_refreshed">Last refreshed: </string>
 
     <string name="weather_url" translatable="false">https://api.darksky.net/forecast/apikey/lat,lon?units=unitSet</string>
+    <string name="api_url" translatable="false">http://weatherapp.c1rcle.pl/api.php?field=value</string>
 
     <string name="cities_hint">Add cities using the search button on the app bar!</string>
 

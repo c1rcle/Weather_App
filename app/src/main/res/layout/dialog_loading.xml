@@ -16,11 +16,11 @@
         android:text="@string/dialog_loading_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/progressSpinner"
+        app:layout_constraintStart_toEndOf="@+id/updateSpinner"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progressSpinner"
+        android:id="@+id/updateSpinner"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

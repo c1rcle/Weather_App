@@ -118,4 +118,5 @@
     <string name="dialog_version_cancel">Zamknij</string>
     <string name="dialog_version_download">Pobierz</string>
     <string name="action_update">Aktualizuj</string>
+    <string name="dialog_version_directory">Wybierz folder</string>
 </resources>
