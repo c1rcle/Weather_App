@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.c1rcle.weatherapp.R;
 import com.c1rcle.weatherapp.WeatherInfo.WeatherInfoForecastItem;
 
-public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+public class ForecastViewHolder extends RecyclerView.ViewHolder
 {
     public final View mView;
 
@@ -35,14 +35,13 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.
 
     public WeatherInfoForecastItem mItem;
 
-    private ConstraintLayout extendedLayout;
+    private ConstraintLayout expandedLayout;
 
     public ForecastViewHolder(View view)
     {
         super(view);
-        itemView.setOnClickListener(this);
-
         mView = view;
+
         mDay = view.findViewById(R.id.itemDay);
         mDate = view.findViewById(R.id.itemDate);
         mIcon = view.findViewById(R.id.itemIcon);
@@ -53,8 +52,7 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.
         mHumidity = view.findViewById(R.id.itemHumidityValue);
         mWind = view.findViewById(R.id.itemWindValue);
         mPrecip = view.findViewById(R.id.itemPrecipValue);
-
-        extendedLayout = view.findViewById(R.id.constraintLayoutDetails);
+        expandedLayout = view.findViewById(R.id.constraintLayoutDetails);
     }
 
     @Override
@@ -63,11 +61,8 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.
         return super.toString() + " '" + mDate.getText() + "'";
     }
 
-    @Override
-    public void onClick(View view)
+    public void bind()
     {
-        if (extendedLayout.getVisibility() == View.VISIBLE)
-            extendedLayout.setVisibility(View.GONE);
-        else extendedLayout.setVisibility(View.VISIBLE);
+        expandedLayout.setVisibility(mItem.isExpanded() ? View.VISIBLE : View.GONE);
     }
 }

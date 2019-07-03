@@ -22,6 +22,8 @@ public class WeatherInfoForecastItem
 
     private final String precip;
 
+    private boolean expanded;
+
     public WeatherInfoForecastItem(String day, String date, int icon, String minTemp, String maxTemp,
                                    String description, String pressure, String humidity, String wind,
                                    String precip)
@@ -36,6 +38,7 @@ public class WeatherInfoForecastItem
         this.humidity = humidity;
         this.wind = wind;
         this.precip = precip;
+        expanded = false;
     }
 
     public String getDay()
@@ -86,5 +89,15 @@ public class WeatherInfoForecastItem
     public String getPrecip()
     {
         return precip;
+    }
+
+    public boolean isExpanded()
+    {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded)
+    {
+        this.expanded = expanded;
     }
 }

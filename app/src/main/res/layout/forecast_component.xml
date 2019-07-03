@@ -4,7 +4,6 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
     android:orientation="horizontal">
 
     <android.support.constraint.ConstraintLayout
@@ -14,6 +13,7 @@
         android:orientation="horizontal"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -50,44 +50,35 @@
             android:id="@+id/itemImageHigh"
             android:layout_width="15dp"
             android:layout_height="19dp"
-            android:layout_marginTop="16dp"
             android:paddingTop="2dp"
             android:scaleX="0.8"
             android:scaleY="0.8"
             android:tint="?colorPrimaryDark"
             app:layout_constraintBottom_toTopOf="@+id/itemDescription"
             app:layout_constraintEnd_toStartOf="@+id/itemTempHigh"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/icon_high" />
 
         <TextView
             android:id="@+id/itemTempHigh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="end"
             android:text="12° C"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/itemDescription"
-            app:layout_constraintEnd_toStartOf="@+id/itemImageLow"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toStartOf="@+id/itemImageLow" />
 
         <ImageView
             android:id="@+id/itemImageLow"
             android:layout_width="15dp"
             android:layout_height="19dp"
-            android:layout_marginTop="16dp"
             android:paddingTop="2dp"
             android:scaleX="0.8"
             android:scaleY="0.8"
             android:tint="?colorPrimaryDark"
             app:layout_constraintBottom_toTopOf="@+id/itemDescription"
             app:layout_constraintEnd_toStartOf="@+id/itemTempLow"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/icon_low" />
 
         <TextView
@@ -133,10 +124,8 @@
         android:id="@+id/constraintLayoutDetails"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -147,7 +136,7 @@
             android:id="@+id/itemDivisionLine"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:background="#80808080"
+            android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -156,6 +145,7 @@
             android:id="@+id/itemPressure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/forecast_pressure"
             app:layout_constraintBottom_toTopOf="@+id/itemHumidity"
@@ -167,6 +157,7 @@
             android:id="@+id/itemHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@string/forecast_humidity"
             app:layout_constraintBottom_toTopOf="@+id/itemWind"
             app:layout_constraintStart_toStartOf="parent"
@@ -176,6 +167,7 @@
             android:id="@+id/itemWind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@string/forecast_wind"
             app:layout_constraintBottom_toTopOf="@+id/itemPrecip"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,6 +177,7 @@
             android:id="@+id/itemPrecip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@string/forecast_precip"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
