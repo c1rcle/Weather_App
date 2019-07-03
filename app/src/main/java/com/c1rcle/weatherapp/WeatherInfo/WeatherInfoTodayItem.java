@@ -10,14 +10,27 @@ public class WeatherInfoTodayItem
 
     private final String city;
 
+    private final String pressure;
+
+    private final String humidity;
+
+    private final String wind;
+
+    private final String precip;
+
     private final String refreshStamp;
 
-    public WeatherInfoTodayItem(String city, int icon, String temp, String description, String refreshStamp)
+    public WeatherInfoTodayItem(String city, int icon, String temp, String description, String pressure,
+                                String humidity, String wind, String precip, String refreshStamp)
     {
         this.city = city;
         this.icon = icon;
         this.temp = temp;
         this.description = description;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.precip = precip;
         this.refreshStamp = refreshStamp;
     }
 
@@ -39,6 +52,26 @@ public class WeatherInfoTodayItem
     public String getCity()
     {
         return city;
+    }
+
+    public String getPressure()
+    {
+        return pressure;
+    }
+
+    public String getHumidity()
+    {
+        return humidity;
+    }
+
+    public String getWind()
+    {
+        return wind;
+    }
+
+    public String getPrecip()
+    {
+        return precip;
     }
 
     public String getRefreshStamp()

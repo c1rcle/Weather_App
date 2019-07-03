@@ -84,9 +84,14 @@ public class JsonReader
         int icon = WeatherIcons.translateCode(forecast.get("icon").getAsString());
         String temp = String.format("%.0f", forecast.get("temperature").getAsDouble()) + Units.getTempUnit(unit);
         String description = WeatherIcons.translateDescription(forecast.get("icon").getAsString(), context);
+        String pressure = String.format("%.0f", forecast.get("pressure").getAsDouble()) + Units.getPressureUnit(unit);
+        String humidity = String.format("%.0f", forecast.get("humidity").getAsDouble() * 100) + "%";
+        String wind = forecast.get("windSpeed").getAsString() + Units.getSpeedUnit(unit) + "(" +
+                context.getString(R.string.forecast_direction) + " " + forecast.get("windBearing").getAsString() + "°)";
+        String precip = String.format("%.0f", forecast.get("precipProbability").getAsDouble() * 100) + "%";
         String ref = new SimpleDateFormat(" dd.MM.yyyy HH:mm", Locale.getDefault()).format(new Date());
         ref = context.getString(R.string.last_refreshed) + ref;
         WeatherInfo.TODAY_ITEM = new WeatherInfoTodayItem(Objects.requireNonNull(city).getName(),
-                icon, temp, description, ref);
+                icon, temp, description, pressure, humidity, wind, precip, ref);
     }
 }
