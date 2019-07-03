@@ -120,4 +120,9 @@
     <string name="dialog_version_directory">Wybierz folder</string>
     <string name="notification_description">Pobieranie wersji</string>
     <string name="error_permissions">Aktualizacja nie może zostać pobrana bez twojej zgody!</string>
+    <string name="forecast_direction">kierunek</string>
+    <string name="forecast_humidity">Wilgotność:</string>
+    <string name="forecast_precip">Praw. opadów:</string>
+    <string name="forecast_pressure">Ciśnienie:</string>
+    <string name="forecast_wind">Wiatr:</string>
 </resources>

@@ -26,6 +26,7 @@ public class TodayFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
+        //TODO - layout jumps when orientation changes during refresh.
         View view = inflater.inflate(R.layout.fragment_today, container, false);
         if (TODAY_ITEM != null)
         {

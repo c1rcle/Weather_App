@@ -26,18 +26,34 @@ public class WeatherRecyclerViewAdapter extends RecyclerView.Adapter<ForecastVie
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.forecast_component, parent, false);
+        view.setFocusable(false);
         return new ForecastViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ForecastViewHolder holder, int position)
+    public void onBindViewHolder(final ForecastViewHolder holder, final int position)
     {
         holder.mItem = mValues.get(position);
+        holder.bind();
+        holder.itemView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                holder.mItem.setExpanded(!holder.mItem.isExpanded());
+                notifyItemChanged(holder.getAdapterPosition());
+            }
+        });
         holder.mDay.setText(mValues.get(position).getDay());
         holder.mDate.setText(mValues.get(position).getDate());
         holder.mIcon.setImageResource(mValues.get(position).getIcon());
-        holder.mTemp.setText(mValues.get(position).getTemp());
+        holder.mMinTemp.setText(mValues.get(position).getMinTemp());
+        holder.mMaxTemp.setText(mValues.get(position).getMaxTemp());
         holder.mDescription.setText(mValues.get(position).getDescription());
+        holder.mPressure.setText(mValues.get(position).getPressure());
+        holder.mHumidity.setText(mValues.get(position).getHumidity());
+        holder.mWind.setText(mValues.get(position).getWind());
+        holder.mPrecip.setText(mValues.get(position).getPrecip());
     }
 
     @Override

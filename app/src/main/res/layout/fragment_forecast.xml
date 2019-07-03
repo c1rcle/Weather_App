@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
+    android:nestedScrollingEnabled="true"
     app:layoutManager="LinearLayoutManager"
     tools:context="com.c1rcle.weatherapp.Fragments.ForecastFragment"
     tools:listitem="@layout/forecast_component" />
