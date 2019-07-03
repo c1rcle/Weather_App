@@ -40,7 +40,6 @@ import com.c1rcle.weatherapp.Utility.City;
 import com.c1rcle.weatherapp.Utility.ObjectSerialization;
 import com.c1rcle.weatherapp.Utility.Themes;
 import com.c1rcle.weatherapp.Utility.TinyDB;
-import com.c1rcle.weatherapp.Utility.Units;
 import com.c1rcle.weatherapp.WeatherParser.JsonReader;
 import com.c1rcle.weatherapp.WeatherParser.RefreshTask;
 import com.google.gson.JsonElement;
@@ -309,7 +308,6 @@ public class MainActivity extends AppCompatActivity
             URL = URL.replace("lat", Double.toString(city.getCoordinates().latitude));
             URL = URL.replace("lon", Double.toString(city.getCoordinates().longitude));
             URL = URL.replace("unitSet", unit);
-            unit = Units.getUnit(unit);
 
             Loader loader = getSupportLoaderManager().restartLoader(0, null, this);
             loader.forceLoad();

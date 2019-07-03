@@ -8,17 +8,34 @@ public class WeatherInfoForecastItem
 
     private final int icon;
 
-    private final String temp;
+    private final String minTemp;
+
+    private final String maxTemp;
 
     private final String description;
 
-    public WeatherInfoForecastItem(String day, String date, int icon, String temp, String description)
+    private final String pressure;
+
+    private final String humidity;
+
+    private final String wind;
+
+    private final String precip;
+
+    public WeatherInfoForecastItem(String day, String date, int icon, String minTemp, String maxTemp,
+                                   String description, String pressure, String humidity, String wind,
+                                   String precip)
     {
         this.day = day;
         this.date = date;
         this.icon = icon;
-        this.temp = temp;
+        this.minTemp = minTemp;
+        this.maxTemp = maxTemp;
         this.description = description;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.precip = precip;
     }
 
     public String getDay()
@@ -36,13 +53,38 @@ public class WeatherInfoForecastItem
         return icon;
     }
 
-    public String getTemp()
+    public String getMinTemp()
     {
-        return temp;
+        return minTemp;
+    }
+
+    public String getMaxTemp()
+    {
+        return maxTemp;
     }
 
     public String getDescription()
     {
         return description;
+    }
+
+    public String getPressure()
+    {
+        return pressure;
+    }
+
+    public String getHumidity()
+    {
+        return humidity;
+    }
+
+    public String getWind()
+    {
+        return wind;
+    }
+
+    public String getPrecip()
+    {
+        return precip;
     }
 }

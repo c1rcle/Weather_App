@@ -36,8 +36,13 @@ public class WeatherRecyclerViewAdapter extends RecyclerView.Adapter<ForecastVie
         holder.mDay.setText(mValues.get(position).getDay());
         holder.mDate.setText(mValues.get(position).getDate());
         holder.mIcon.setImageResource(mValues.get(position).getIcon());
-        holder.mTemp.setText(mValues.get(position).getTemp());
+        holder.mMinTemp.setText(mValues.get(position).getMinTemp());
+        holder.mMaxTemp.setText(mValues.get(position).getMaxTemp());
         holder.mDescription.setText(mValues.get(position).getDescription());
+        holder.mPressure.setText(mValues.get(position).getPressure());
+        holder.mHumidity.setText(mValues.get(position).getHumidity());
+        holder.mWind.setText(mValues.get(position).getWind());
+        holder.mPrecip.setText(mValues.get(position).getPrecip());
     }
 
     @Override

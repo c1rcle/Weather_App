@@ -1,77 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="86dp"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
     android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/itemIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/icon_font"
-        android:gravity="center"
-        android:tint="?colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/forecast_component"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_wi_cloud" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/itemDay"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/itemIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/icon_font"
+            android:gravity="center"
+            android:tint="?colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_wi_cloud" />
+
+        <TextView
+            android:id="@+id/itemDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Poniedziałek"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/itemDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageView
+            android:id="@+id/itemImageHigh"
+            android:layout_width="15dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="16dp"
+            android:paddingTop="2dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:tint="?colorPrimaryDark"
+            app:layout_constraintBottom_toTopOf="@+id/itemDescription"
+            app:layout_constraintEnd_toStartOf="@+id/itemTempHigh"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/icon_high" />
+
+        <TextView
+            android:id="@+id/itemTempHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:text="12° C"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/itemDescription"
+            app:layout_constraintEnd_toStartOf="@+id/itemImageLow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/itemImageLow"
+            android:layout_width="15dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="16dp"
+            android:paddingTop="2dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:tint="?colorPrimaryDark"
+            app:layout_constraintBottom_toTopOf="@+id/itemDescription"
+            app:layout_constraintEnd_toStartOf="@+id/itemTempLow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/icon_low" />
+
+        <TextView
+            android:id="@+id/itemTempLow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:text="12° C"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/itemDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/itemDescription"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="end"
+            android:text="Odosobnione przelotne burze"
+            android:textAllCaps="false"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemTempLow" />
+
+        <TextView
+            android:id="@+id/itemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="30.01.2018"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemDay" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutDetails"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Poniedziałek"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/itemDate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/itemTemp"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:gravity="end"
-        android:text="Max 12° C"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/itemDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/itemDescription"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="end"
-        android:text="Odosobnione przelotne burze"
-        android:textAllCaps="false"
-        android:textStyle="italic"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemTemp" />
-
-    <TextView
-        android:id="@+id/itemDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="30.01.2018"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemDay" />
+        app:layout_constraintTop_toBottomOf="@+id/forecast_component">
 
+        <View
+            android:id="@+id/itemDivisionLine"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#80808080"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemPressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/forecast_pressure"
+            app:layout_constraintBottom_toTopOf="@+id/itemHumidity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/itemHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forecast_humidity"
+            app:layout_constraintBottom_toTopOf="@+id/itemWind"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemPressure" />
+
+        <TextView
+            android:id="@+id/itemWind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forecast_wind"
+            app:layout_constraintBottom_toTopOf="@+id/itemPrecip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemHumidity" />
+
+        <TextView
+            android:id="@+id/itemPrecip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forecast_precip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemWind" />
+
+        <TextView
+            android:id="@+id/itemPressureValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="1010 hp"
+            app:layout_constraintBottom_toTopOf="@+id/itemHumidityValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemPrecip"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemHumidityValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="50%"
+            app:layout_constraintBottom_toTopOf="@+id/itemWindValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemPrecip"
+            app:layout_constraintTop_toBottomOf="@+id/itemPressureValue" />
+
+        <TextView
+            android:id="@+id/itemWindValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="16 km/h (kierunek 230°)"
+            app:layout_constraintBottom_toTopOf="@+id/itemPrecipValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemPrecip"
+            app:layout_constraintTop_toBottomOf="@+id/itemHumidityValue" />
+
+        <TextView
+            android:id="@+id/itemPrecipValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="12%"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemPrecip"
+            app:layout_constraintTop_toBottomOf="@+id/itemWindValue" />
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

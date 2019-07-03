@@ -43,6 +43,17 @@
     <string name="day_sat">Saturday</string>
     <string name="day_sun">Sunday</string>
 
+    <string name="forecast_pressure">Pressure:</string>
+    <string name="forecast_humidity">Humidity:</string>
+    <string name="forecast_wind">Wind:</string>
+    <string name="forecast_precip">Precip. probability:</string>
+    <string name="forecast_direction">direction</string>
+    
+    <string name="unit_kmh" translatable="false">km/h</string>
+    <string name="unit_mph" translatable="false">mph</string>
+    <string name="unit_hp" translatable="false">hp</string>
+    <string name="unit_inhg" translatable="false">inHg</string>
+    
     <string name="condition_0">Tornado</string>
     <string name="condition_1">Tropical storm</string>
     <string name="condition_2">Hurricane</string>
